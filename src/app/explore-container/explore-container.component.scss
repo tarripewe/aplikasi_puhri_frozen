@@ -6,6 +6,38 @@ ion-card {
   text-align: left;
 }
 
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Ubah jadi 3 kolom di layar besar (desktop) */
+@media (min-width: 992px) {
+  .card-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+ion-card {
+  background-color: #2e7d32;
+  color: #2e7d32;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 ion-card-title {
   font-weight: bold;
+  font-size: 1.8rem;
+  color: white;
+}
+
+ion-card-subtitle, ion-card-content {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.soft-green-bg {
+  --background: #2e7d32;
 }

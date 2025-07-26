@@ -1,6 +1,33 @@
+ion-toolbar {
+  --background: #2e7d32;
+  --color: white;
+}
+
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); // 2 kolom
-  gap: 16px; // Jarak antar kotak
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
   padding: 16px;
+}
+
+ion-card {
+  background-color: #2e7d32;
+  color: #2e7d32;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+ion-card-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+ion-card-subtitle, ion-card-content {
+  font-size: 0.9rem;
+  color: #2e7d32;
+}
+
+.soft-green-bg {
+  --background: #2e7d32;
 }
