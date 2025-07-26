@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-explore-container',
@@ -7,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./explore-container.component.scss'],
   standalone: false,
 })
-
 export class ExploreContainerComponent {
   @Input() name!: string;
   @Input() harga!: number;
@@ -19,5 +17,10 @@ export class ExploreContainerComponent {
   formatRupiah(angka: number): string {
     return 'Rp ' + angka.toLocaleString('id-ID');
   }
-}
 
+  @Output() cardClicked = new EventEmitter<void>();
+
+  handleClick() {
+    this.cardClicked.emit();
+  }
+}

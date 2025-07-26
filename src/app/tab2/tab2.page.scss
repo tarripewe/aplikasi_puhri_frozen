@@ -1,0 +1,51 @@
+ion-header {
+  background-color: #2e7d32; // hijau tua
+  color: white;
+}
+
+ion-toolbar {
+  --background: #2e7d32;
+  --color: white;
+}
+
+ion-title {
+  font-weight: bold;
+}
+
+ion-content {
+  --background: #f1f8f4; // latar belakang hijau muda/lembut
+}
+
+ion-item {
+  --background: #2e7d32;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 128, 0, 0.1);
+}
+
+ion-label {
+  color: #2e7d32;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+ion-input,
+ion-select {
+  --color: #2e7d32;
+}
+
+ion-button {
+  --background: #2e7d32;
+  --color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  height: 60px;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); // bayangan hijau lembut
+}
+
+ion-input {
+  color: white !important;
+}
+
+
+

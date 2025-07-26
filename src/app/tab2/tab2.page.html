@@ -1,15 +1,81 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title> Tambah Produk </ion-title>
+    <ion-title>
+      <ion-icon
+        [name]="isEdit ? 'create-outline' : 'add-circle-outline'"
+        slot="start"
+        style="margin-right: 8px"
+      ></ion-icon>
+      {{ isEdit ? 'Edit Produk' : 'Tambah Produk' }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tambah Produk</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <form
+    (ngSubmit)="submitForm()"
+    #productForm="ngForm"
+    style="max-width: 500px; margin: 0 auto"
+  >
+    <ion-item>
+      <ion-label position="floating">Nama Produk</ion-label>
+      <ion-input
+        type="text"
+        required
+        [(ngModel)]="form.nama_produk"
+        name="nama_produk"
+      ></ion-input>
+    </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-item>
+      <ion-label position="floating">Harga</ion-label>
+      <ion-input
+        type="number"
+        required
+        [(ngModel)]="form.harga"
+        name="harga"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Qty</ion-label>
+      <ion-input
+        type="number"
+        required
+        [(ngModel)]="form.qty"
+        name="qty"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Satuan (UOM)</ion-label>
+      <ion-select required [(ngModel)]="form.uom" name="uom">
+        <ion-select-option value="pcs">pcs</ion-select-option>
+        <ion-select-option value="pak">pak</ion-select-option>
+        <ion-select-option value="kardus">kardus</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Stok Reminder</ion-label>
+      <ion-input
+        type="number"
+        required
+        [(ngModel)]="form.stok_reminder"
+        name="stok_reminder"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">SKU</ion-label>
+      <ion-input
+        type="number"
+        required
+        [(ngModel)]="form.sku"
+        name="sku"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit"> Simpan Produk </ion-button>
+  </form>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1', // ✔ Nama selector sesuai
@@ -50,5 +51,9 @@ export class Tab1Page {
     },
   ];
 
-  constructor() {} // ✔ Konstruktor boleh kosong jika tidak ada dependency
+  constructor(private router: Router) {}
+
+  goToTab2() {
+    this.router.navigate(['/tabs/tab2']);
+  }
 }
