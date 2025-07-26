@@ -1,4 +1,11 @@
-<div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<div class="container">
+  <ion-card class="card-grid">
+    <ion-card-header>
+      <ion-card-title>{{ name }}</ion-card-title>
+      <ion-card-subtitle>{{ formatRupiah(harga) }}/{{ uom }}</ion-card-subtitle>
+      <ion-card-subtitle>{{ qty }}</ion-card-subtitle>
+      <ion-card-subtitle>{{ barcode }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>{{ stock }}</ion-card-content>
+  </ion-card>
 </div>

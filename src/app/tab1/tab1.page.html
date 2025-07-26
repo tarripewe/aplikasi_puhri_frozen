@@ -1,17 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Puhri Frozen </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Puhri Frozen</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-content>
+    <div class="card-grid">
+      <app-explore-container
+        *ngFor="let product of products"
+        [name]="product.name"
+        [harga]="product.harga"
+        [uom]="product.uom"
+        [barcode]="product.barcode"
+        [stock]="product.stock"
+        [qty]="product.qty"
+      ></app-explore-container>
+    </div>
+  </ion-content>
 </ion-content>

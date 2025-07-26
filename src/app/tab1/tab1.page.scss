@@ -1,0 +1,6 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 2 kolom
+  gap: 16px; // Jarak antar kotak
+  padding: 16px;
+}
