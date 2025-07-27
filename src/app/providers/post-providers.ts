@@ -5,9 +5,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'  
+})
 export class PostProvider {
-  //server: string = 'https://f1si1.itb1.ac.id/api/';
   server: string = 'http://localhost:8000/api/';
   // server: string = 'http://localhost/api/';
 

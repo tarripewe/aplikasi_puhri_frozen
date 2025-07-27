@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
-// Tangani preflight request (OPTIONS)
+// Tangani preflight request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
@@ -21,29 +21,30 @@ if ($aksi == "tampil") {
     $stmt->execute();
     $data = $stmt->fetchAll();
     echo json_encode($data);
+    exit();
 }
 
-// === Aksi CREATE ===
-elseif ($aksi === "create") {
+// === Aksi TAMBAH Produk ===
+if ($aksi == "tambah") {
     try {
         $stmt = $pdo->prepare("INSERT INTO produk (nama_produk, harga, qty, uom, stok_reminder, sku) 
                                VALUES (:nama_produk, :harga, :qty, :uom, :stok_reminder, :sku)");
-        $stmt->execute([
-            ':nama_produk'   => $input->nama_produk ?? '',
-            ':harga'         => $input->harga ?? 0,
-            ':qty'           => $input->qty ?? 0,
-            ':uom'           => $input->uom ?? '',
-            ':stok_reminder' => $input->stok_reminder ?? 0,
-            ':sku'           => $input->sku ?? ''
-        ]);
 
-        echo json_encode(["status" => "success", "message" => "Produk berhasil ditambahkan"]);
-    } catch (PDOException $e) {
-        echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+        $stmt->bindParam(':nama_produk', $data->nama_produk, PDO::PARAM_STR);
+        $stmt->bindParam(':harga', $data->harga);
+        $stmt->bindParam(':qty', $data->qty);
+        $stmt->bindParam(':uom', $data->uom, PDO::PARAM_STR);
+        $stmt->bindParam(':stok_reminder', $data->stok_reminder, PDO::PARAM_INT);
+        $stmt->bindParam(':sku', $data->sku, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        echo json_encode(["success" => true, "msg" => "Produk berhasil ditambahkan"]);
+    } catch (Exception $e) {
+        echo json_encode(["success" => false, "msg" => $e->getMessage()]);
     }
+    exit();
 }
 
-// === Aksi TIDAK VALID ===
-else {
-    echo json_encode(["status" => "error", "message" => "Aksi tidak valid"]);
-}
+// Default jika aksi tidak dikenal
+echo json_encode(["success" => false, "msg" => "Aksi tidak valid"]);

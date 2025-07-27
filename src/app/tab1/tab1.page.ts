@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule, ToastController } from '@ionic/angular';
-
 import { Router } from '@angular/router';
 import { PostProvider } from '../providers/post-providers';
 import { CommonModule } from '@angular/common';
@@ -16,54 +15,11 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule, 
+    ExploreContainerComponentModule,
   ],
   providers: [PostProvider],
 })
-export class Tab1Page {
-  // products = [
-  //   {
-  //     name: 'Sosis So Nice',
-  //     harga: 12000,
-  //     uom: 'pak',
-  //     barcode: '265493564554647',
-  //     stock: 'Out of stock',
-  //     qty: 200,
-  //   },
-  //   {
-  //     name: 'Nugget Fiesta',
-  //     harga: 18000,
-  //     uom: 'pak',
-  //     barcode: '1234567890123',
-  //     stock: 'In stock',
-  //     qty: 200,
-  //   },
-  //   {
-  //     name: 'Chicken Stick',
-  //     harga: 15000,
-  //     uom: 'pak',
-  //     barcode: '9876543210987',
-  //     stock: 'In stock',
-  //     qty: 200,
-  //   },
-  //   {
-  //     name: 'Bakso Sapi',
-  //     harga: 14000,
-  //     uom: 'pak',
-  //     barcode: '3213213213210',
-  //     stock: 'Out of stock',
-  //     qty: 200,
-  //   },
-  //   {
-  //     name: 'Dimsum Ayam',
-  //     harga: 13000,
-  //     uom: 'pak',
-  //     barcode: '1112223334445',
-  //     stock: 'Re stock',
-  //     qty: 200,
-  //   },
-  // ];
-
+export class Tab1Page implements OnInit {
   products: any[] = [];
 
   constructor(
@@ -76,11 +32,25 @@ export class Tab1Page {
     this.loadProducts();
   }
 
+  // ✅ Auto reload saat masuk ke tab1
+  ionViewWillEnter() {
+    this.loadProducts();
+  }
+
   doRefresh(event: any) {
     setTimeout(() => {
-      this.ngOnInit();
-      event.target.complete();
+      this.loadProducts().then(() => {
+        event.target.complete();
+      });
     }, 500);
+  }
+
+  loadData(event: any) {
+    setTimeout(() => {
+      this.loadProducts().then(() => {
+        event.target.complete();
+      });
+    }, 1000);
   }
 
   loadProducts() {
