@@ -10,42 +10,45 @@ ion-toolbar {
 
 ion-title {
   font-weight: bold;
+   font-size: 24px !important;
+   text-align: center;
 }
 
 ion-content {
   --background: #f1f8f4; // latar belakang hijau muda/lembut
 }
 
-ion-item {
+iion-item {
   --background: #2e7d32;
-  border-radius: 8px;
+  --color: white;
+  border-radius: 12px;
   margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0, 128, 0, 0.1);
+  padding-inline: 8px;
+  font-size: 14px;
 }
 
 ion-label {
-  color: #2e7d32;
-  font-weight: 500;
-  font-size: 12px;
+  color: white;
+  font-size: 14px;
 }
 
 ion-input,
 ion-select {
-  --color: #2e7d32;
+  color: white;
+  font-size: 14px;
+}
+
+ion-select::part(text) {
+  color: white;
 }
 
 ion-button {
   --background: #2e7d32;
   --color: white;
   font-weight: bold;
-  border-radius: 8px;
-  height: 60px;
-  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); // bayangan hijau lembut
+  border-radius: 12px;
 }
 
-ion-input {
-  color: white !important;
-}
 
 
 

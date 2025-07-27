@@ -22,3 +22,28 @@ if ($aksi == "tampil") {
     $data = $stmt->fetchAll();
     echo json_encode($data);
 }
+
+// === Aksi CREATE ===
+elseif ($aksi === "create") {
+    try {
+        $stmt = $pdo->prepare("INSERT INTO produk (nama_produk, harga, qty, uom, stok_reminder, sku) 
+                               VALUES (:nama_produk, :harga, :qty, :uom, :stok_reminder, :sku)");
+        $stmt->execute([
+            ':nama_produk'   => $input->nama_produk ?? '',
+            ':harga'         => $input->harga ?? 0,
+            ':qty'           => $input->qty ?? 0,
+            ':uom'           => $input->uom ?? '',
+            ':stok_reminder' => $input->stok_reminder ?? 0,
+            ':sku'           => $input->sku ?? ''
+        ]);
+
+        echo json_encode(["status" => "success", "message" => "Produk berhasil ditambahkan"]);
+    } catch (PDOException $e) {
+        echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+    }
+}
+
+// === Aksi TIDAK VALID ===
+else {
+    echo json_encode(["status" => "error", "message" => "Aksi tidak valid"]);
+}

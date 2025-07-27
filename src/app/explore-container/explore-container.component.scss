@@ -11,14 +11,22 @@ ion-card {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   padding: 16px;
+  padding-bottom: 24px; /* default padding bawah */
 }
 
-/* Ubah jadi 3 kolom di layar besar (desktop) */
-@media (min-width: 992px) {
+/* Tambah padding bawah di layar besar */
+@media (min-width: 768px) {
   .card-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 48px;
   }
 }
+
+@media (min-width: 992px) {
+  .card-grid {
+    padding-bottom: 64px;
+  }
+}
+
 
 ion-card {
   background-color: #2e7d32;
