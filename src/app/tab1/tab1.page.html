@@ -1,10 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title size="large">Puhri Frozen</ion-title>
+    <!-- <ion-searchbar
+      placeholder="Cari produk..."
+      [(ngModel)]="searchTerm"
+      (ionInput)="filterProducts($event)"
+      animated="true"
+      color="light"
+    ></ion-searchbar> -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" className="soft-green-bg" >
+<ion-content [fullscreen]="true" className="soft-green-bg">
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"

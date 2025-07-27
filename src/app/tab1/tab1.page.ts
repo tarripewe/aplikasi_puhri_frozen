@@ -21,6 +21,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 })
 export class Tab1Page implements OnInit {
   products: any[] = [];
+  allProducts: any[] = [];
+  searchTerm: string = '';
 
   constructor(
     private router: Router,
@@ -62,6 +64,13 @@ export class Tab1Page implements OnInit {
         resolve(true);
       });
     });
+  }
+
+  filterProducts(event: any) {
+    const term = event.target.value?.toLowerCase() || '';
+    this.products = this.allProducts.filter((item) =>
+      item.nama_produk.toLowerCase().includes(term)
+    );
   }
 
   goToTab2() {

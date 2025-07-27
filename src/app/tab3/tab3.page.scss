@@ -1,0 +1,31 @@
+ion-toolbar {
+  --background: #2e7d32;
+  --color: white;
+}
+
+ion-title{
+  text-align: center;
+  font-size: 40px;
+  padding: 14px;
+  color: white;
+}
+
+.profile-card {
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.1);
+//   background-color: #f1f8f4;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block; /* penting agar margin auto bekerja */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}

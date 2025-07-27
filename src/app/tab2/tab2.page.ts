@@ -27,7 +27,9 @@ export class Tab2Page {
     private toastController: ToastController,
     private router: Router,
     private postPvdr: PostProvider
-  ) {}
+  ) {
+    
+  }
 
   submitForm() {
     return new Promise(async (resolve, reject) => {
@@ -53,6 +55,7 @@ export class Tab2Page {
         uom: this.form.uom,
         stok_reminder: this.form.stok_reminder,
         sku: this.form.sku,
+        
       };
 
       this.postPvdr.postData(body, 'action.php').subscribe({
@@ -85,3 +88,4 @@ export class Tab2Page {
     toast.present();
   }
 }
+
