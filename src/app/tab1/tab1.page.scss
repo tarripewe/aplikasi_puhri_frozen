@@ -11,19 +11,19 @@ ion-title{
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, fr); /* 2 kolom */
+  grid-template-columns: repeat(2, fr); 
   gap: 16px;
   padding: 16px;
 }
 
-/* Untuk tablet ke atas, bisa 3 kolom */
+
 @media (min-width: 768px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Untuk layar kecil (<= 480px), jadi 1 kolom */
+
 @media (max-width: 480px) {
   .card-grid {
     grid-template-columns: 1fr;
@@ -54,7 +54,7 @@ ion-card-subtitle, ion-card-content {
 }
 
 ion-searchbar {
-  --background: #f1f8e9; /* hijau muda natural */
+  --background: #f1f8e9;
   --color: #33691e;
   --placeholder-color: #689f38;
   --icon-color: #689f38;
@@ -62,7 +62,7 @@ ion-searchbar {
 
   width: 100%;
   max-width: 550px;
-  margin: 12px auto; /* center */
+  margin: 12px auto;
   padding: 0 16px;
 
   border-radius: 10px;

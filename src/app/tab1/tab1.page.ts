@@ -34,7 +34,6 @@ export class Tab1Page implements OnInit {
     this.loadProducts();
   }
 
-  // ✅ Auto reload saat masuk ke tab1
   ionViewWillEnter() {
     this.loadProducts();
   }
@@ -73,13 +72,12 @@ export class Tab1Page implements OnInit {
     );
   }
 
-goToTab2(produk: any) {
-  this.router.navigate(['/tabs/tab2'], {
-    state: {
-      isEdit: true,
-      produk,
-    },
-  });
-}
-
+  goToTab2(produk: any) {
+    this.router.navigate(['/tabs/tab2'], {
+      state: {
+        isEdit: true,
+        produk,
+      },
+    });
+  }
 }

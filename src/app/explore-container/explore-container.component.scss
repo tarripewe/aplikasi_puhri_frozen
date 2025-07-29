@@ -11,10 +11,10 @@ ion-card {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   padding: 16px;
-  padding-bottom: 24px; /* default padding bawah */
+  padding-bottom: 24px; 
 }
 
-/* Tambah padding bawah di layar besar */
+
 @media (min-width: 768px) {
   .card-grid {
     padding-bottom: 48px;
@@ -29,7 +29,7 @@ ion-card {
 
 
 ion-card {
-  background-color: #2e7d32;
+  background-color: whitesmoke;
   color: #2e7d32;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -38,12 +38,12 @@ ion-card {
 ion-card-title {
   font-weight: bold;
   font-size: 1.5rem;
-  color: white;
+  color: black;
 }
 
 ion-card-subtitle, ion-card-content {
   font-size: 1.1rem;
-  color: white;
+  color: black;
 }
 
 .soft-green-bg {
@@ -56,15 +56,15 @@ ion-card-subtitle {
 }
 
 .status-out {
-  color: #f44336; /* Merah */
+  color: #f44336; 
 }
 
 .status-restock {
-  color: #ff9800; /* Orange */
+  color: #ff9800; 
 }
 
 .status-available {
-  color: #ffffff; /* Putih */
+  color: #2e7d32; 
 }
 
 

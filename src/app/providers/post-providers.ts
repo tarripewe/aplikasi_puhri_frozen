@@ -1,12 +1,10 @@
-// File Name: post-providers.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'  
+  providedIn: 'root',
 })
 export class PostProvider {
   server: string = 'http://localhost:8000/api/';
@@ -18,12 +16,14 @@ export class PostProvider {
     let type = 'application/json; charset=UTF-8';
     let headers = new HttpHeaders({ 'Content-Type': type });
 
-    return this.http.post(this.server + file, JSON.stringify(body), {
-      headers: headers,
-    }).pipe(
-      map((res: any) => {
-        return res;
+    return this.http
+      .post(this.server + file, JSON.stringify(body), {
+        headers: headers,
       })
-    );
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
 }
