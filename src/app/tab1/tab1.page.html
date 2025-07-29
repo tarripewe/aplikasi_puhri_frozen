@@ -8,6 +8,16 @@
       animated="true"
       color="light"
     ></ion-searchbar>
+    <ion-segment
+      [(ngModel)]="statusFilter"
+      (ionChange)="applyFilter()"
+      mode="md"
+    >
+      <ion-segment-button value="all">Semua</ion-segment-button>
+      <ion-segment-button value="available">Available</ion-segment-button>
+      <ion-segment-button value="restock">Re-stock</ion-segment-button>
+      <ion-segment-button value="outofstock">Out of Stock</ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 

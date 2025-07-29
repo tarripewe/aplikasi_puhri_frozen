@@ -23,6 +23,7 @@ export class Tab1Page implements OnInit {
   products: any[] = [];
   allProducts: any[] = [];
   searchTerm: string = '';
+  statusFilter: string = 'all';
 
   constructor(
     private router: Router,
@@ -60,7 +61,7 @@ export class Tab1Page implements OnInit {
 
       this.postPvdr.postData(body, 'action.php').subscribe((data) => {
         this.products = data;
-        this.allProducts = data; // <- penting! salin data asli
+        this.allProducts = data;
         resolve(true);
       });
     });
@@ -73,6 +74,40 @@ export class Tab1Page implements OnInit {
     );
   }
 
+   applyFilter() {
+    const term = this.searchTerm.toLowerCase();
+
+    this.products = this.allProducts.filter((item) => {
+      const matchSearch = item.nama_produk.toLowerCase().includes(term);
+
+      const isOutOfStock = item.qty == 0;
+      const isRestock = item.qty <= item.stok_reminder && item.qty > 0;
+      const isAvailable = item.qty > item.stok_reminder;
+
+      let matchStatus = true;
+      switch (this.statusFilter) {
+        case 'available':
+          matchStatus = isAvailable;
+          break;
+        case 'restock':
+          matchStatus = isRestock;
+          break;
+        case 'outofstock':
+          matchStatus = isOutOfStock;
+          break;
+        default:
+          matchStatus = true;
+      }
+
+      return matchSearch && matchStatus;
+    });
+  }
+
+  changeFilter(status: string) {
+    this.statusFilter = status;
+    this.applyFilter();
+  }
+
   goToTab2(produk: any) {
     this.router.navigate(['/tabs/tab2'], {
       state: {
@@ -82,5 +117,3 @@ export class Tab1Page implements OnInit {
     });
   }
 }
-
-
