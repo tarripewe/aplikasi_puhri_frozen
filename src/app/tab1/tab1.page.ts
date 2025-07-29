@@ -60,6 +60,7 @@ export class Tab1Page implements OnInit {
 
       this.postPvdr.postData(body, 'action.php').subscribe((data) => {
         this.products = data;
+        this.allProducts = data; // <- penting! salin data asli
         resolve(true);
       });
     });
@@ -81,3 +82,5 @@ export class Tab1Page implements OnInit {
     });
   }
 }
+
+
