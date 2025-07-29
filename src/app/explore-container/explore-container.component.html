@@ -5,6 +5,21 @@
       <ion-card-subtitle>{{ formatRupiah(harga) }}/{{ uom }}</ion-card-subtitle>
       <ion-card-subtitle>Stok: {{ qty }}</ion-card-subtitle>
       <ion-card-subtitle>SKU: {{ sku }}</ion-card-subtitle>
+    <ion-card-title
+  [ngClass]="{
+    'status-out': qty == 0,
+    'status-restock': qty > 0 && stock > qty,
+    'status-available': qty > 0 && stock <= qty
+  }"
+>
+  <ng-container *ngIf="qty == 0; else checkStock">Out of stock</ng-container>
+  <ng-template #checkStock>
+    <ng-container *ngIf="stock > qty; else available" >Re-stock</ng-container>
+    <ng-template #available>Available</ng-template>
+  </ng-template>
+</ion-card-title>
+
+
     </ion-card-header>
     <!-- <ion-card-content>{{ stok_reminder }}</ion-card-content> -->
   </ion-card>
