@@ -1,94 +1,54 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">
+  <ion-toolbar>
+    <ion-title>
       <ion-icon
         [name]="isEdit ? 'create-outline' : 'add-circle-outline'"
         slot="start"
         style="margin-right: 8px"
       ></ion-icon>
-      {{ isEdit ? 'Edit Produk' : 'Tambah Produk' }}
+      {{ isEdit ? 'Ubah Produk' : 'Tambah Produk' }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" style="--background: #f1f8f4">
-  <ion-card>
-    <ion-card-content>
-      <form
-        (ngSubmit)="submitForm()"
-        #productForm="ngForm"
-      >
-        <ion-item lines="inset">
-          <ion-label position="floating">Nama Produk</ion-label>
-          <ion-input
-            type="text"
-            required
-            [(ngModel)]="form.nama_produk"
-            name="nama_produk"
-          ></ion-input>
-        </ion-item>
+<ion-content class="ion-padding">
+  <form (ngSubmit)="submitForm()" style="max-width: 500px; margin: 0 auto">
+    <ion-item>
+      <ion-label position="floating">Nama Produk</ion-label>
+      <ion-input [(ngModel)]="form.nama_produk" name="nama_produk" required type="text"></ion-input>
+    </ion-item>
 
-        <ion-item lines="inset">
-          <ion-label position="floating">Harga</ion-label>
-          <ion-input
-            type="number"
-            required
-            [(ngModel)]="form.harga"
-            name="harga"
-          ></ion-input>
-        </ion-item>
+    <ion-item>
+      <ion-label position="floating">Harga</ion-label>
+      <ion-input [(ngModel)]="form.harga" name="harga" required type="number"></ion-input>
+    </ion-item>
 
-        <ion-item lines="inset">
-          <ion-label position="floating">Qty</ion-label>
-          <ion-input
-            type="number"
-            required
-            [(ngModel)]="form.qty"
-            name="qty"
-          ></ion-input>
-        </ion-item>
+    <ion-item>
+      <ion-label position="floating">Qty</ion-label>
+      <ion-input [(ngModel)]="form.qty" name="qty" required type="number"></ion-input>
+    </ion-item>
 
-        <ion-item lines="inset">
-          <ion-label position="floating">Satuan (UOM)</ion-label>
-          <ion-select required [(ngModel)]="form.uom" name="uom">
-            <ion-select-option value="pcs">pcs</ion-select-option>
-            <ion-select-option value="pak">pak</ion-select-option>
-            <ion-select-option value="kardus">kardus</ion-select-option>
-          </ion-select>
-        </ion-item>
+    <ion-item>
+      <ion-label position="floating">Satuan (UOM)</ion-label>
+      <ion-select [(ngModel)]="form.uom" name="uom" required>
+        <ion-select-option value="pcs">pcs</ion-select-option>
+        <ion-select-option value="pak">pak</ion-select-option>
+        <ion-select-option value="kardus">kardus</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-        <ion-item lines="inset">
-          <ion-label position="floating">Stok Reminder</ion-label>
-          <ion-input
-            type="number"
-            required
-            [(ngModel)]="form.stok_reminder"
-            name="stok_reminder"
-          ></ion-input>
-        </ion-item>
+    <ion-item>
+      <ion-label position="floating">Stok Reminder</ion-label>
+      <ion-input [(ngModel)]="form.stok_reminder" name="stok_reminder" required type="number"></ion-input>
+    </ion-item>
 
-        <ion-item lines="inset">
-          <ion-label position="floating">SKU</ion-label>
-          <ion-input
-            type="number"
-            required
-            [(ngModel)]="form.sku"
-            name="sku"
-          ></ion-input>
-        </ion-item>
+    <ion-item>
+      <ion-label position="floating">SKU</ion-label>
+      <ion-input [(ngModel)]="form.sku" name="sku" required type="number"></ion-input>
+    </ion-item>
 
-        <div class="ion-padding-vertical">
-          <ion-button
-            expand="block"
-            type="submit"
-            color="primary"
-            shape="round"
-            size="large"
-          >
-            SIMPAN PRODUK
-          </ion-button>
-        </div>
-      </form>
-    </ion-card-content>
-  </ion-card>
+    <ion-button expand="block" type="submit">
+      {{ isEdit ? 'Update Produk' : 'Simpan Produk' }}
+    </ion-button>
+  </form>
 </ion-content>

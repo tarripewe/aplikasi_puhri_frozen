@@ -73,7 +73,13 @@ export class Tab1Page implements OnInit {
     );
   }
 
-  goToTab2() {
-    this.router.navigate(['/tabs/tab2']);
-  }
+goToTab2(produk: any) {
+  this.router.navigate(['/tabs/tab2'], {
+    state: {
+      isEdit: true,
+      produk,
+    },
+  });
+}
+
 }
