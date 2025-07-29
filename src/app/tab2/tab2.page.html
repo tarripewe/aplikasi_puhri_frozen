@@ -15,17 +15,27 @@
   <form (ngSubmit)="submitForm()" style="max-width: 500px; margin: 0 auto">
     <ion-item>
       <ion-label position="floating">Nama Produk</ion-label>
-      <ion-input [(ngModel)]="form.nama_produk" name="nama_produk" required type="text"></ion-input>
+      <ion-input
+        [(ngModel)]="form.nama_produk"
+        name="nama_produk"
+        required
+        type="text"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Harga</ion-label>
-      <ion-input [(ngModel)]="form.harga" name="harga" required type="number"></ion-input>
+      <ion-input
+        [(ngModel)]="form.harga"
+        name="harga"
+        required
+        type="number"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Qty</ion-label>
-      <ion-input [(ngModel)]="form.qty" name="qty" required type="number"></ion-input>
+      <ion-input [(ngModel)]="form.qty" name="qty"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -39,12 +49,17 @@
 
     <ion-item>
       <ion-label position="floating">Stok Reminder</ion-label>
-      <ion-input [(ngModel)]="form.stok_reminder" name="stok_reminder" required type="number"></ion-input>
+      <ion-input
+        [(ngModel)]="form.stok_reminder"
+        name="stok_reminder"
+        required
+        type="number"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">SKU</ion-label>
-      <ion-input [(ngModel)]="form.sku" name="sku" required type="number"></ion-input>
+      <ion-input [(ngModel)]="form.sku" name="sku"></ion-input>
     </ion-item>
 
     <ion-button expand="block" type="submit">

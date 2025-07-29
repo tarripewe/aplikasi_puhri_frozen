@@ -5,16 +5,31 @@ ion-toolbar {
 
 ion-title{
   text-align: center;
-  font-size: 50px;
+  font-size: 36px;
   padding: 15px;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, fr); /* 2 kolom */
   gap: 16px;
   padding: 16px;
 }
+
+/* Untuk tablet ke atas, bisa 3 kolom */
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Untuk layar kecil (<= 480px), jadi 1 kolom */
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 ion-card {
   background-color: #2e7d32;

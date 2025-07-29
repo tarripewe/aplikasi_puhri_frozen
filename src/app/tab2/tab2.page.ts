@@ -41,25 +41,22 @@ export class Tab2Page {
 
   async submitForm() {
     const { nama_produk, harga, qty, uom, stok_reminder, sku } = this.form;
+
     if (!nama_produk || !harga || !qty || !uom || !stok_reminder || !sku) {
       this.showToast('Semua field wajib diisi');
       return;
     }
 
-    let body = {
+    const body = {
       aksi: this.isEdit ? 'edit' : 'tambah',
-      id_produk: this.form.id_produk, // pastikan ini dikirim jika edit
-      nama_produk: this.form.nama_produk,
-      harga: this.form.harga,
-      qty: this.form.qty,
-      uom: this.form.uom,
-      stok_reminder: this.form.stok_reminder,
-      sku: this.form.sku,
+      id_produk: this.form.id_produk,
+      nama_produk: nama_produk,
+      harga: harga,
+      qty: qty,
+      uom: uom,
+      stok_reminder: stok_reminder,
+      sku: sku,
     };
-
-    if (this.isEdit) {
-      body.id_produk = this.form.id_produk;
-    }
 
     this.postPvdr.postData(body, 'action.php').subscribe({
       next: (data: any) => {
@@ -69,6 +66,7 @@ export class Tab2Page {
               ? 'Produk berhasil diubah'
               : 'Produk berhasil ditambahkan'
           );
+          this.resetForm();
           this.router.navigate(['/tabs/tab1'], { state: { reload: true } });
         } else {
           this.showToast(data.msg || 'Gagal menyimpan data');
@@ -78,6 +76,19 @@ export class Tab2Page {
         this.showToast('Gagal menyambung ke server');
       },
     });
+  }
+
+  resetForm() {
+    this.form = {
+      id_produk: 0,
+      nama_produk: '',
+      harga: 0,
+      qty: 0,
+      uom: '',
+      stok_reminder: 0,
+      sku: 0,
+    };
+    this.isEdit = false;
   }
 
   async showToast(msg: string) {
