@@ -46,7 +46,7 @@ export class Tab1Page implements OnInit {
       });
     }, 500);
   }
-
+  // Reload
   loadData(event: any) {
     setTimeout(() => {
       this.loadProducts().then(() => {
@@ -55,6 +55,7 @@ export class Tab1Page implements OnInit {
     }, 1000);
   }
 
+  // Show products
   loadProducts() {
     return new Promise((resolve) => {
       let body = { aksi: 'tampil' };
@@ -67,6 +68,7 @@ export class Tab1Page implements OnInit {
     });
   }
 
+  // Search
   filterProducts(event: any) {
     const term = event.target.value?.toLowerCase() || '';
     this.products = this.allProducts.filter((item) =>
@@ -74,7 +76,8 @@ export class Tab1Page implements OnInit {
     );
   }
 
-   applyFilter() {
+  // filter
+  applyFilter() {
     const term = this.searchTerm.toLowerCase();
 
     this.products = this.allProducts.filter((item) => {
